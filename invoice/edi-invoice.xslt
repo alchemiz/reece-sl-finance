@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:a="http://reece.com.au/2010/integration/1">
 <xsl:output method="html" indent="yes"/>
+<xsl:template name="format_date">
+    <xsl:param name="date"/>
+    <xsl:choose>
+        <xsl:when test="string-length($date) = 8">
+            <xsl:value-of select="concat(substring($date,7,2),'/',substring($date,5,2),'/',substring($date,1,4))"/>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:value-of select="'&#160;'"/>
+        <xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
 <xsl:template match="/">
     <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;&#xa;&#xd;</xsl:text>
     <html>
@@ -159,11 +170,23 @@
                             </tr>
                             <tr style="border-bottom: 1px solid red;">
                                 <th colspan="5" style="width:175px;border-right: 1px solid red;"><xsl:value-of select="a:Invoices/a:Invoice/a:buyerOrderNumber/a:referenceNumber"/></th>
-                                <th colspan="5" style="width:175px;border-right: 1px solid red;">01/01/1900</th>
+                                <th colspan="5" style="width:175px;border-right: 1px solid red;"><xsl:variable name="order_date" select="a:Invoices/a:Invoice/a:purchaseDate/a:value"/>
+                                    <xsl:call-template name="format_date">
+                                        <xsl:with-param name="date" select="$order_date"/>
+                                    </xsl:call-template>                                
+                                </th>
                                 <th colspan="5" style="width:175px;border-right: 1px solid red;"><xsl:value-of select="a:Invoices/a:Invoice/a:deliveryNumber/a:referenceNumber"/></th>
-                                <th colspan="5" style="width:175px;border-right: 1px solid red;">01/01/1900</th>
+                                <th colspan="5" style="width:175px;border-right: 1px solid red;"><xsl:variable name="delivery_date" select="a:Invoices/a:Invoice/a:deliveryDate/a:value"/>
+                                    <xsl:call-template name="format_date">
+                                        <xsl:with-param name="date" select="$delivery_date"/>
+                                    </xsl:call-template>                                
+                                </th>
                                 <th colspan="5" style="width:175px;border-right: 1px solid red;"><xsl:value-of select="a:Invoices/a:Invoice/a:invoiceNumber"/></th>
-                                <th colspan="5" style="width:175px;"><xsl:value-of select="a:Invoices/a:Invoice/a:invoiceDate/a:value"/></th>
+                                <th colspan="5" style="width:175px;"><xsl:variable name="invoice_date" select="a:Invoices/a:Invoice/a:invoiceDate/a:value"/>
+                                    <xsl:call-template name="format_date">
+                                        <xsl:with-param name="date" select="$invoice_date"/>
+                                    </xsl:call-template>                                
+                                </th>
                             </tr>									
                         </thead>
                         <tbody>
