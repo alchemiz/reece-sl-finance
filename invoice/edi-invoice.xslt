@@ -45,6 +45,8 @@
 
 			div <xsl:text disable-output-escaping="yes">&gt;</xsl:text> table tbody tr	{ display: block;}
 
+			div * { white-space: nowrap; }
+
 			#container	{ height: 99.2%; width: 1058px; position: relative; display: block;}
 
 			#edi-footer { position: relative; bottom: 73px; border: 1px solid red; border-bottom-style: none; width: 1056px; margin: 0px; padding: 0px;} 
