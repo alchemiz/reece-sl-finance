@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:a="http://reece.com.au/2010/integration/1">
 <xsl:output method="html" indent="yes"/>
-	<xsl:template name="return_xml_val">
-	<xsl:param name="path"/>
-		<xsl:choose>
-			<xsl:when test="$path!=''">
-			<xsl:value-of select="$path"/>
-			</xsl:when>
-			<xsl:otherwise>
-			<xsl:value-of select="'baduy'" />
-			</xsl:otherwise>
-		</xsl:choose>
-	</xsl:template>
+
 	<xsl:template name="format_date">
     <xsl:param name="date"/>
     <xsl:choose>
