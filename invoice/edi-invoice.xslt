@@ -41,11 +41,13 @@
 
 			tbody	{ display: block; overflow-y: auto; overflow-x: hidden; table-layout: fixed; max-height: calc(100vh - 295px)}
 
-			div <xsl:text disable-output-escaping="yes">&gt;</xsl:text> table tbody td	{ word-wrap: break-word; vertical-align: middle; display: inline-block; height: 52px;}
+			div <xsl:text disable-output-escaping="yes">&gt;</xsl:text> table tbody td	{ word-wrap:normal; vertical-align: middle; display: inline-block; height: 52px;}
 
 			div <xsl:text disable-output-escaping="yes">&gt;</xsl:text> table tbody tr	{ display: block;}
 
-			div * { white-space: nowrap; }
+			div * {
+    			white-space: nowrap;
+			}
 
 			#container	{ height: 99.2%; width: 1058px; position: relative; display: block;}
 
@@ -90,101 +92,101 @@
 			<div class="page-header">
 				<div style="text-align: center;">TAX INVOICE</div>
 				<div class="row" style="display: block; height: 12px;">
-					<div style="width: 5%;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 30%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierNumber"/></div>
-					<div style="width: 8%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierState"/></div>
+					<div style="width: 5%;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 30%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierNumber"/></div>
+					<div style="width: 8%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierState"/></div>
 					<div style="width: 7%; text-align: right;">Ship To :</div>
-					<div style="width: 45%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:shipToParty/a:name"/></div>
-					<div style="width: 4%;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
+					<div style="width: 45%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:shipToParty/a:name"/></div>
+					<div style="width: 4%;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
 				</div>
 				<div class="row" style="display: block; height: 12px;">
-					<div style="width: 5%;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 30%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierName"/></div>
-					<div style="width: 8%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
+					<div style="width: 5%;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 30%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierName"/></div>
+					<div style="width: 8%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
 					<div style="width: 7%; text-align: right;">:</div>
-					<div style="width: 45%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:shipToParty/a:address/a:addressLines[1]"/></div>
-					<div style="width: 4%;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
+					<div style="width: 45%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:shipToParty/a:address/a:addressLines[1]"/></div>
+					<div style="width: 4%;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
 				</div>
 				<div class="row" style="display: block; height: 12px;">
-					<div style="width: 5%;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 30%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierAddressLine1"/></div>
-					<div style="width: 8%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
+					<div style="width: 5%;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 30%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierAddressLine1"/></div>
+					<div style="width: 8%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
 					<div style="width: 7%; text-align: right;">:</div>
-					<div style="width: 45%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:shipToParty/a:address/a:city"/></div>
-					<div style="width: 4%;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
+					<div style="width: 45%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:shipToParty/a:address/a:city"/></div>
+					<div style="width: 4%;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
 				</div>
 				<div class="row" style="display: block; height: 12px;">
-					<div style="width: 5%;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 30%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierAddressLine2"/></div>
-					<div style="width: 8%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
+					<div style="width: 5%;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 30%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierAddressLine2"/></div>
+					<div style="width: 8%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
 					<div style="width: 7%; text-align: right;">:</div>
-					<div style="width: 45%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:shipToParty/a:address/a:state"/></div>
-					<div style="width: 4%;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
+					<div style="width: 45%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:shipToParty/a:address/a:state"/></div>
+					<div style="width: 4%;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
 				</div>
 				<div class="row" style="display: block; height: 12px;">
-					<div style="width: 5%;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 30%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierAddressLine3"/></div>
-					<div style="width: 8%; text-align: right;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierPostCode"/></div>
+					<div style="width: 5%;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 30%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierAddressLine3"/></div>
+					<div style="width: 8%; text-align: right;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierPostCode"/></div>
 					<div style="width: 7%; text-align: right;">:</div>
-					<div style="width: 45%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:shipToParty/a:address/a:postCode"/></div>
-					<div style="width: 4%;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
+					<div style="width: 45%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:shipToParty/a:address/a:postCode"/></div>
+					<div style="width: 4%;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
 				</div>
 				<div class="row" style="display: block; height: 12px;">
-					<div style="width: 5%;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 19%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text>Ph: <xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierPhoneNumber"/></div>
-					<div style="width: 19%; text-align: right;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text>Fax: <xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierFaxNumber"/></div>
+					<div style="width: 5%;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 19%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>Ph: <xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierPhoneNumber"/></div>
+					<div style="width: 19%; text-align: right;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>Fax: <xsl:value-of select="a:Invoices/a:Invoice/a:supplierDetails/a:supplierFaxNumber"/></div>
 					<div style="width: 7%; text-align: right;">:</div>
-					<div style="width: 45%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:shipToParty/a:address/a:countryCode"/></div>
-					<div style="width: 4%;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
+					<div style="width: 45%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:shipToParty/a:address/a:countryCode"/></div>
+					<div style="width: 4%;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
 				</div>
 				<div class="row" style="display: block; height: 16px;">
-					<div style="width: 5%;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 30%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text>ABN: <xsl:value-of select="a:Invoices/a:Invoice/a:supplierPartyAustralianBusinessNumber/a:referenceNumber"/></div>
-					<div style="width: 8%; text-align: right;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 7%; text-align: right;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 45%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 4%;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
+					<div style="width: 5%;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 30%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>ABN: <xsl:value-of select="a:Invoices/a:Invoice/a:supplierPartyAustralianBusinessNumber/a:referenceNumber"/></div>
+					<div style="width: 8%; text-align: right;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 7%; text-align: right;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 45%; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 4%;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
 				</div>
 				<div class="row" style="display: block; height: 12px; white-space: nowrap; border-top: 1px solid red;">
 					<div style="width: 34%; height: 12px; display: inline-block; padding-left: 15px; border-right: 1px solid red; padding-top: 2px;">
 						<div style="width: 29%; text-align: right;  color:red;">INVOICE FROM :</div>
-						<div style="color: black;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierParty/a:name"/></div>
+						<div style="color: black;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierParty/a:name"/></div>
 					</div>
 					<div style="width: 32%;height: 12px; display: inline-block; border-right: 1px solid red; padding-top: 2px;">
 						<div style="width: 25%; text-align: left; color:red;">INVOICE TO :</div>
-						<div style="color: black;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:name"/></div>                  
+						<div style="color: black;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:name"/></div>                  
 					</div>
 					<div style="width: 32%;height: 12px; display: inline-block;">
 						<div style="width: 26%; text-align: left; color:red;">DELIVER TO :</div>
-						<div style="color: black;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:name"/></div>                  
+						<div style="color: black;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:name"/></div>                  
 					</div>
 				</div>
 				<div class="row" style="display: block; height: 12px; white-space: nowrap;">
 					<div style="width: 34%; height: 12px; display: inline-block; padding-left: 15px; border-right: 1px solid red; padding-top: 2px;">
-						<div style="width: 29%; text-align: right;  color:black;"><xsl:value-of select="a:Invoices/a:Invoice/a:supplierParty/a:partyIdentification"/><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-						<div style="color: black;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierParty/a:address/a:addressLines[1]"/></div>
+						<div style="width: 29%; text-align: right;  color:black;"><xsl:value-of select="a:Invoices/a:Invoice/a:supplierParty/a:partyIdentification"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+						<div style="color: black;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierParty/a:address/a:addressLines[1]"/></div>
 					</div>
 					<div style="width: 32%;height: 12px; display: inline-block; border-right: 1px solid red; padding-top: 2px;">
-						<div style="width: 25%; text-align: right; color:black;"><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:partyIdentification"/><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-						<div style="color: black;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:address/a:addressLines[1]"/></div>
+						<div style="width: 25%; text-align: right; color:black;"><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:partyIdentification"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+						<div style="color: black;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:address/a:addressLines[1]"/></div>
 					</div>
 					<div style="width: 32%;height: 12px; display: inline-block;">
-						<div style="width: 26%; text-align: right; color:black;"><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:partyIdentification"/><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-						<div style="color: black;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:address/a:addressLines[1]"/></div>
+						<div style="width: 26%; text-align: right; color:black;"><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:partyIdentification"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+						<div style="color: black;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:address/a:addressLines[1]"/></div>
 					</div>
 				</div>
 				<div class="row" style="display: block; height: 16px; white-space: nowrap; border-bottom: 1px solid red; margin-bottom: -2px;"> 
 					<div style="width: 34%; height: 12px; display: inline-block; padding-left: 15px; border-right: 1px solid red; padding-top: 4px;"> 
-						<div style="width: 29%; text-align: right;  color:black;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-						<div style="color: black; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierParty/a:address/a:city"/><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierParty/a:address/a:state"/><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierParty/a:address/a:countryCode"/><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierParty/a:address/a:postCode"/></div>
+						<div style="width: 29%; text-align: right;  color:black;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+						<div style="color: black; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierParty/a:address/a:city"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierParty/a:address/a:state"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierParty/a:address/a:countryCode"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:supplierParty/a:address/a:postCode"/></div>
 					</div>
 					<div style="width: 32%;height: 12px; display: inline-block; border-right: 1px solid red; padding-top: 4px;"> 
-						<div style="width: 25%; text-align: right; color:black;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-						<div style="color: black; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:address/a:city"/><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:address/a:state"/><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:address/a:countryCode"/><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:address/a:postCode"/></div>
+						<div style="width: 25%; text-align: right; color:black;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+						<div style="color: black; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:address/a:city"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:address/a:state"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:address/a:countryCode"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:address/a:postCode"/></div>
 					</div> 
 					<div style="width: 32%;height: 12px; display: inline-block;"> 
-						<div style="width: 26%; text-align: right; color:black;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-						<div style="color: black; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:address/a:city"/><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:address/a:state"/><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:address/a:countryCode"/><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:address/a:postCode"/></div>
+						<div style="width: 26%; text-align: right; color:black;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+						<div style="color: black; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:address/a:city"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:address/a:state"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:address/a:countryCode"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:address/a:postCode"/></div>
 					</div>
 				</div>
 				<div class="row" style="display: block; height: 12px; white-space: nowrap; color: red; "> 
@@ -203,22 +205,22 @@
 				</div> 
 				<div class="row" style="display: block; height: 16px; white-space: nowrap; color: black; border-bottom: 1px solid red; padding-top: 2px;">
 					<div style="width: 34%; height: 12px; display: inline-block; padding-left: 15px;">
-						<div style="width: 49.8%; text-align: center; border-right: 1px solid red; padding-top: 3px;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerOrderNumber/a:referenceNumber"/></div>
-						<div style="width: 47.9%; text-align: center; border-right: 1px solid red; padding-top: 3px;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:variable name="order_date" select="a:Invoices/a:Invoice/a:purchaseDate/a:value"/>
+						<div style="width: 49.8%; text-align: center; border-right: 1px solid red; padding-top: 3px;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerOrderNumber/a:referenceNumber"/></div>
+						<div style="width: 47.9%; text-align: center; border-right: 1px solid red; padding-top: 3px;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:variable name="order_date" select="a:Invoices/a:Invoice/a:purchaseDate/a:value"/>
 						<xsl:call-template name="format_date">
 							<xsl:with-param name="date" select="$order_date"/>
 						</xsl:call-template></div>
 					</div>
 					<div style="width: 32%;height: 12px; display: inline-block;">
-						<div style="width: 49.8%; text-align: center; border-right: 1px solid red; padding-top: 3px;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:deliveryNumber/a:referenceNumber"/></div>
-						<div style="width: 48%; text-align: center; border-right: 1px solid red; padding-top: 3px;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:variable name="delivery_date" select="a:Invoices/a:Invoice/a:deliveryDate/a:value"/>
+						<div style="width: 49.8%; text-align: center; border-right: 1px solid red; padding-top: 3px;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:deliveryNumber/a:referenceNumber"/></div>
+						<div style="width: 48%; text-align: center; border-right: 1px solid red; padding-top: 3px;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:variable name="delivery_date" select="a:Invoices/a:Invoice/a:deliveryDate/a:value"/>
 						<xsl:call-template name="format_date">
 							<xsl:with-param name="date" select="$delivery_date"/>
 						</xsl:call-template></div>
 					</div>
 					<div style="width: 32%;height: 12px; display: inline-block;">
-						<div style="width: 50%; text-align: center; border-right: 1px solid red; padding-top: 3px;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:invoiceNumber"/></div>
-						<div style="width: 50%; text-align: center; padding-top: 3px;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:variable name="invoice_date" select="a:Invoices/a:Invoice/a:invoiceDate/a:value"/>
+						<div style="width: 50%; text-align: center; border-right: 1px solid red; padding-top: 3px;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:invoiceNumber"/></div>
+						<div style="width: 50%; text-align: center; padding-top: 3px;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:variable name="invoice_date" select="a:Invoices/a:Invoice/a:invoiceDate/a:value"/>
 						<xsl:call-template name="format_date">
 							<xsl:with-param name="date" select="$invoice_date"/>
 						</xsl:call-template></div>
@@ -237,32 +239,54 @@
 			</div>
 			 <table>
 				 <thead>
-					<tr><td><div class="page-header-space"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div></td></tr>
+					<tr><td><div class="page-header-space"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div></td></tr>
 				 </thead>
 				 <tbody>
-					<tr><th><div style="visibility:hidden">space</div></th></tr>
+					<tr><th style="height:12px;"><div style="visibility:hidden">space</div></th></tr>
 					<xsl:for-each select="a:Invoices/a:Invoice/a:productLines/a:productLine">
 						<tr class="row-detail" >
 						<td>
 							<div style="width: 19%; text-align: center;">
-								<xsl:value-of select="a:buyingGuide/a:productNumber"/><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text>
+								<xsl:for-each select="a:additionalProducts">
+									<xsl:variable name="productPartNumberId" select="a:productPartNumberId"/>
+									<xsl:choose>
+										<xsl:when test="$productPartNumberId = 'IN'">
+											<xsl:value-of select="a:productPartNumber" />
+										</xsl:when>
+										<xsl:otherwise>
+											<xsl:value-of select="'&#160;'"/>
+										</xsl:otherwise>
+									</xsl:choose>
+								</xsl:for-each>
+								<xsl:if test="a:buyingGuide">
+									<xsl:value-of select="a:buyingGuide/a:productNumber"/>
+								</xsl:if>
+								<xsl:if test="not(a:buyingGuide)">
+									<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+								</xsl:if>
 							</div>
 							<div style="width: 31.5%; text-align: left;">
 								<xsl:if test="a:buyingGuide">
-									<xsl:value-of select="a:buyingGuide/a:productDescription"/><xsl:text disable-output-escaping="yes">&lt;br /&gt;</xsl:text>GST Amount: <xsl:value-of select="a:totalGoodsAndServicesTaxAmount/a:amount"/><xsl:text disable-output-escaping="yes">&lt;br /&gt;</xsl:text>(<xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text>CAT:<xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:buyingGuide/a:cat"/><xsl:text disable-output-escaping="yes">&amp;ensp;&amp;ensp;</xsl:text>APN:<xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:buyingGuide/a:apn"/><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text>)
+									<xsl:value-of select="a:buyingGuide/a:productDescription"/><xsl:text disable-output-escaping="yes">&lt;br /&gt;</xsl:text>
+									GST Amount: <xsl:value-of select="a:totalGoodsAndServicesTaxAmount/a:amount"/><xsl:text disable-output-escaping="yes">&lt;br /&gt;</xsl:text>
+									(<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>CAT:<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+										<xsl:value-of select="a:buyingGuide/a:cat"/><xsl:text disable-output-escaping="yes">&amp;nbsp;&amp;nbsp;</xsl:text>APN:<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+										<xsl:value-of select="a:buyingGuide/a:apn"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>)
 								</xsl:if>
 								<xsl:if test="not(a:buyingGuide)">
 									<xsl:value-of select="a:itemDescription/a:descriptionLine"/><xsl:text disable-output-escaping="yes">&lt;br /&gt;</xsl:text>GST Amount: <xsl:value-of select="a:totalGoodsAndServicesTaxAmount/a:amount"/>
-									<xsl:text disable-output-escaping="yes">&lt;br /&gt;</xsl:text>(<xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:for-each select="a:additionalProducts">
-									<xsl:if test="a:productPartNumberId='SA'">CAT:<xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:productPartNumber"/><xsl:text disable-output-escaping="yes">&amp;ensp;&amp;ensp;</xsl:text>
-									</xsl:if>
-									<xsl:if test="a:productPartNumberId='EN'">APN:<xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text><xsl:value-of select="a:productPartNumber"/><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text>
-									</xsl:if></xsl:for-each><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text>)
+									<xsl:text disable-output-escaping="yes">&lt;br /&gt;</xsl:text>
+									(<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:for-each select="a:additionalProducts">
+										<xsl:if test="a:productPartNumberId='SA'">CAT:<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:productPartNumber"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+										</xsl:if>
+										<xsl:if test="a:productPartNumberId='EN'">APN:<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:productPartNumber"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+										</xsl:if>
+									</xsl:for-each><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>)
 								</xsl:if>
 							</div>
 							<div style="width: 7%; text-align: right;"><xsl:value-of select="format-number(a:invoiceQuantity/a:quantity, '#########.00')"/></div>
 							<div style="width: 8%; text-align: right;"><xsl:value-of select="format-number(a:itemUnitPriceTaxExclusive/a:price, '##########.00')"/></div>
-							<div style="width: 4%; text-align: right;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
+							<div style="width: 4%; text-align: right;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
 							<div style="width: 4.5%; text-align: center;"><xsl:value-of select="a:invoiceQuantity/a:unit"/></div>
 							<div style="width: 5.2%; text-align: right;"><xsl:value-of select="a:goodsAndServicesTax/a:rate"/></div>
 							<div style="width: 13.5%; text-align: right; margin-right: 12px;"><xsl:value-of select="a:totalItemAmountTaxExclusive/a:amount"/></div>
@@ -273,22 +297,23 @@
 				 <tfoot>
 					<tr>
 					  <td>
-						<div class="page-footer-space"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
+						<div class="page-footer-space"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
 					  </td>
 					</tr>
 				  </tfoot>
 			</table>
 			<div id="edi-footer" class="page-footer">
 				<div style="display: block; height: 18px; line-height: 18px; white-space: nowrap; color: red; text-align: center; padding-bottom: 0px;">
-					<div style="width: 20%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 20%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 23%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 19.6%; display: inline-block; border-right: 1px solid red;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
+					<div style="width: 20%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 20%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 23%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 19.6%; display: inline-block; border-right: 1px solid red;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
 					<div style="width: 14%; display: inline-block; font-weight: bold;"><u>INVOICE TOTAL</u></div>
 				</div>            
 				<div style="display: block; height: 18px; line-height: 18px;  white-space: nowrap; color: black; padding-bottom: 0px;">
-					<div style="width: 20%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 20%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
+					<div style="width: 20%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 20%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<!-- FREIGHT -->
 					<xsl:if test="number(a:Invoices/a:Invoice/a:freightCost/a:amount) = a:Invoices/a:Invoice/a:freightCost/a:amount">
 						<xsl:if test="number(a:Invoices/a:Invoice/a:freightCost/a:amount) > 0">
 							<div style="width: 15.3%; display: inline-block; text-align: left;">FREIGHT (64)</div>
@@ -302,21 +327,25 @@
 					<xsl:if test="number(a:Invoices/a:Invoice/a:freightCost/a:amount) != a:Invoices/a:Invoice/a:freightCost/a:amount">
 						<div style="width: 15.3%; display: inline-block; text-align: left; visibility: hidden;">FREIGHT (64)</div>
 						<div style="width: 7%; display: inline-block; text-align: left; visibility: hidden; ">0.00</div>
-					</xsl:if>					
+					</xsl:if>
+					<xsl:if test="not(a:Invoices/a:Invoice/a:freightCost/a:qualifier)">
+						<div style="width: 15.3%; display: inline-block; text-align: left; visibility: hidden;">FREIGHT (64)</div>
+						<div style="width: 7%; display: inline-block; text-align: left; visibility: hidden; ">0.00</div>					  
+					</xsl:if>
 					<div style="width: 19.9%; display: inline-block; text-align: left; border-right: 1px solid red;">GST Exclusive Total</div>
 					<div style="width: 13%; display: inline-block; text-align: right;"><xsl:value-of select="format-number(number(a:Invoices/a:Invoice/a:totalInvoiceAmountTaxInclusive/a:amount) - number(a:Invoices/a:Invoice/a:totalTaxAmount/a:amount), '########.00')"/></div>
 				</div>            
 				<div style="display: block; height: 18px;  line-height: 18px; white-space: nowrap; color: black;margin-bottom: -2px;">
-					<div style="width: 20%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 20%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 23%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>                        
+					<div style="width: 20%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 20%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 23%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>                        
 					<div style="width: 19.9%; display: inline-block; text-align: left; border-right: 1px solid red;">GST Amount</div>
 					<div style="width: 13%; display: inline-block; text-align: right;"><xsl:value-of select="a:Invoices/a:Invoice/a:totalTaxAmount/a:amount"/></div>
 				</div>
 				<div style="display: block; height: 18px; line-height: 18px; white-space: nowrap; color: black; padding-bottom: 0px;">
-					<div style="width: 20%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 20%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>
-					<div style="width: 23%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;ensp;</xsl:text></div>            
+					<div style="width: 20%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 20%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
+					<div style="width: 23%; display: inline-block;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>            
 					<div style="width: 19.9%; display: inline-block; text-align: left; border-right: 1px solid red;">GST Inclusive Total</div>            
 					<div style="width: 13%; display: inline-block; text-align: right;"><xsl:value-of select="a:Invoices/a:Invoice/a:totalInvoiceAmountTaxInclusive/a:amount"/></div>
 				</div>
