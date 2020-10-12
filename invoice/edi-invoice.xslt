@@ -4,7 +4,7 @@
 
 	<xsl:template name="calc_num_padded_px">
 		<xsl:param name="item_count"/>
-		<xsl:value-of select="(9 - number(number($item_count) mod 9)) * 49.5" />
+		<xsl:value-of select="(9 - number(number($item_count) mod 9)) * 45" />
 	</xsl:template>
 	<xsl:template name="format_date">
     <xsl:param name="date"/>
@@ -19,6 +19,12 @@
 	</xsl:template>
 	<xsl:template match="/">
 	<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;&#xa;&#xd;</xsl:text>
+	<xsl:variable name="product_line_count" select="a:Invoices/a:Invoice/a:numberOfLineItems" />
+	<xsl:variable name="last_page_padded_px">
+		<xsl:call-template name="calc_num_padded_px">
+			<xsl:with-param name="item_count" select="$product_line_count"/>
+		</xsl:call-template>
+	</xsl:variable>
 	<html>
 	<head>
 		<title>EDI INVOICE <xsl:value-of select="a:Invoices/a:Invoice/a:invoiceNumber"/></title>
@@ -95,15 +101,22 @@
 				tfoot	{ display: table-row-group; }
 				
 				table thead, tbody, tfoot {page-break-inside: avoid; page-break-before: avoid; page-break-after: avoid; }
-				
-				table tbody tr.row-detail:nth-child(10n) { page-break-before: always; padding-top: 208px;}
-				
-				table tbody tr.row-detail:nth-child(9n) { padding-bottom: 0px; }
-				
-				table tbody tr.row-detail:nth-child(<xsl:value-of select="a:Invoices/a:Invoice/a:numberOfLineItems"/>) { 
-					padding-bottom:<xsl:call-template name="calc_num_padded_px"><xsl:with-param name="item_count" select="a:Invoices/a:Invoice/a:numberOfLineItems"/></xsl:call-template>px; 
-				}
+
+	<xsl:choose><xsl:when test="$product_line_count &gt; 9">
+				.row-detail:nth-child(9n) { page-break-after: always; }
+
+				.row-detail:nth-child(9n+1) { padding-top: 208px; }
+		<xsl:if test="$last_page_padded_px &gt; 0">
+				.row-detail:nth-child(<xsl:value-of select="$product_line_count"/>) { padding-bottom: <xsl:value-of select="$last_page_padded_px"/>px; }
+
 				#edi-footer { bottom: 74px; height: 72px; }
+		</xsl:if></xsl:when>
+		<xsl:otherwise>
+			.row-detail:nth-child(<xsl:value-of select="$product_line_count"/>) { padding-bottom: <xsl:value-of select="$last_page_padded_px"/>px; }
+
+			#edi-footer { bottom: 90px; height: 72px; }
+		</xsl:otherwise>
+	</xsl:choose>
 			}
 
 		</style>
