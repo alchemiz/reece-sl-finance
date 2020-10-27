@@ -102,15 +102,22 @@
 				
 				table thead, tbody, tfoot {page-break-inside: avoid; page-break-before: avoid; page-break-after: avoid; }
 
-	<xsl:choose><xsl:when test="$product_line_count &gt; 9">
+	<xsl:choose>
+		<xsl:when test="$product_line_count &gt; 9">
 				.row-detail:nth-child(9n) { page-break-after: always; }
 
 				.row-detail:nth-child(9n+1) { padding-top: 208px; }
-		<xsl:if test="$last_page_padded_px &gt; 0">
+			<xsl:if test="$last_page_padded_px &gt; 0">
 				.row-detail:nth-child(<xsl:value-of select="$product_line_count"/>) { padding-bottom: <xsl:value-of select="$last_page_padded_px"/>px; }
 
-				#edi-footer { bottom: 74px; height: 72px; }
-		</xsl:if></xsl:when>
+				#edi-footer { bottom: 76px; height: 72px; }
+			</xsl:if>
+		</xsl:when>
+		<xsl:when test="$product_line_count = 9">
+				.row-detail:nth-child(<xsl:value-of select="$product_line_count"/>) { padding-bottom: <xsl:value-of select="12"/>px; }
+
+				#edi-footer { bottom: 76px; height: 72px; }
+		</xsl:when>
 		<xsl:otherwise>
 			.row-detail:nth-child(<xsl:value-of select="$product_line_count"/>) { padding-bottom: <xsl:value-of select="$last_page_padded_px"/>px; }
 
