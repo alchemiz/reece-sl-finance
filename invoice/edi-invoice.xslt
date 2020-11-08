@@ -4,7 +4,7 @@
 
 	<xsl:template name="calc_num_padded_px">
 		<xsl:param name="item_count"/>
-		<xsl:value-of select="(9 - number(number($item_count) mod 9)) * 49.5" />
+		<xsl:value-of select="(9 - number(number($item_count) mod 9)) * 45" />
 	</xsl:template>
 	<xsl:template name="format_date">
     <xsl:param name="date"/>
@@ -19,6 +19,12 @@
 	</xsl:template>
 	<xsl:template match="/">
 	<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;&#xa;&#xd;</xsl:text>
+	<xsl:variable name="product_line_count" select="a:Invoices/a:Invoice/a:numberOfLineItems" />
+	<xsl:variable name="last_page_padded_px">
+		<xsl:call-template name="calc_num_padded_px">
+			<xsl:with-param name="item_count" select="$product_line_count"/>
+		</xsl:call-template>
+	</xsl:variable>
 	<html>
 	<head>
 		<title>EDI INVOICE <xsl:value-of select="a:Invoices/a:Invoice/a:invoiceNumber"/></title>
@@ -33,7 +39,7 @@
     			white-space: nowrap;
 			}
 
-			#container	{ height: 99.2%; width: 1058px; position: relative; display: block;} 
+			#container	{ height: 99.2%; width: 1059px; position: relative; display: block;} 
 
 			.page-header,
 			.page-header-space	{ height: 196px; width: 1055px; display:block; }
@@ -77,16 +83,16 @@
 			
 			#edi-footer { box-sizing: border-box; position: relative; bottom: 74px; padding: 0px; margin: 0px 0px 0px 2px; border-top: 1px solid red; vertical-align: middle; } 
 
-			.row-footer-details { display: block; height:18px; line-height:18px; padding: 1px 0px 1px 0px; margin: -1px 0px -1px 0px; }
+			.row-footer-details { display: block; height:72px; padding: 1px 0px 1px 0px; margin: -1px 0px -1px 0px; }
 			
 			.row-footer-details <xsl:text disable-output-escaping="yes">&gt;</xsl:text> div { display: block; }
 			
-			.row-footer-details <xsl:text disable-output-escaping="yes">&gt;</xsl:text> div <xsl:text disable-output-escaping="yes">&gt;</xsl:text> div { display: inline-block; }
+			.row-footer-details <xsl:text disable-output-escaping="yes">&gt;</xsl:text> div <xsl:text disable-output-escaping="yes">&gt;</xsl:text> div { display: inline-block; height: 18px; line-height:18px; }
 
 			@media print{
 				@page	{ size: A4 landscape; }
 				
-				body	{ width: 1058px; height: 100%; margin: 0px auto 0px auto; padding: 0px; font-family:'Courier New', Courier, monospace, sans-serif; font-size: 12px; font-weight: normal; }
+				body	{ width: 1056px; max-height: 728px; margin: 0px auto 0px auto; padding: 0px; font-family:'Courier New', Courier, monospace, sans-serif; font-size: 12px; font-weight: normal; }
 				
 				thead	{ display: table-header-group; }
 				
@@ -95,15 +101,29 @@
 				tfoot	{ display: table-row-group; }
 				
 				table thead, tbody, tfoot {page-break-inside: avoid; page-break-before: avoid; page-break-after: avoid; }
-				
-				table tbody tr.row-detail:nth-child(10n) { page-break-before: always; padding-top: 208px;}
-				
-				table tbody tr.row-detail:nth-child(9n) { padding-bottom: 0px; }
-				
-				table tbody tr.row-detail:nth-child(<xsl:value-of select="a:Invoices/a:Invoice/a:numberOfLineItems"/>) { 
-					padding-bottom:<xsl:call-template name="calc_num_padded_px"><xsl:with-param name="item_count" select="a:Invoices/a:Invoice/a:numberOfLineItems"/></xsl:call-template>px; 
-				}
-				#edi-footer { bottom: 74px; height: 72px; }
+
+	<xsl:choose>
+		<xsl:when test="$product_line_count &gt; 9">
+				.row-detail:nth-child(9n) { page-break-after: always; }
+
+				.row-detail:nth-child(9n+1) { padding-top: 208px; }
+			<xsl:if test="$last_page_padded_px &gt; 0">
+				.row-detail:nth-child(<xsl:value-of select="$product_line_count"/>) { padding-bottom: <xsl:value-of select="$last_page_padded_px"/>px; }
+
+				#edi-footer { bottom: 76px; height: 72px; }
+			</xsl:if>
+		</xsl:when>
+		<xsl:when test="$product_line_count = 9">
+				.row-detail:nth-child(<xsl:value-of select="$product_line_count"/>) { padding-bottom: <xsl:value-of select="12"/>px; }
+
+				#edi-footer { bottom: 76px; height: 72px; }
+		</xsl:when>
+		<xsl:otherwise>
+			.row-detail:nth-child(<xsl:value-of select="$product_line_count"/>) { padding-bottom: <xsl:value-of select="$last_page_padded_px"/>px; }
+
+			#edi-footer { bottom: 76px; height: 72px; }
+		</xsl:otherwise>
+	</xsl:choose>
 			}
 
 		</style>
@@ -177,7 +197,7 @@
 						<div style="width: 25%; text-align: left; color:red;">INVOICE TO :</div>
 						<div style="color: black;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:name"/></div>                  
 					</div>
-					<div style="width: 31%;">
+					<div style="width: 31%; overflow: hidden;">
 						<div style="width: 26%; text-align: left; color:red;">DELIVER TO :</div>
 						<div style="color: black;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:name"/></div>                  
 					</div>
@@ -191,7 +211,7 @@
 						<div style="width: 25%; text-align: right; color:black;"><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:partyIdentification"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
 						<div style="color: black;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:address/a:addressLines[1]"/></div>
 					</div>
-					<div style="width: 31%;">
+					<div style="width: 31%; overflow: hidden;">
 						<div style="width: 26%; text-align: right; color:black;"><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:partyIdentification"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
 						<div style="color: black;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:address/a:addressLines[1]"/></div>
 					</div>
@@ -205,7 +225,7 @@
 						<div style="width: 25%; text-align: right; color:black;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
 						<div style="color: black; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:address/a:city"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:address/a:state"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:address/a:countryCode"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:billToParty/a:address/a:postCode"/></div>
 					</div> 
-					<div style="width: 31%;"> 
+					<div style="width: 31%; overflow: hidden;"> 
 						<div style="width: 26%; text-align: right; color:black;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></div>
 						<div style="color: black; text-align: left;"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:address/a:city"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:address/a:state"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:address/a:countryCode"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="a:Invoices/a:Invoice/a:buyerParty/a:address/a:postCode"/></div>
 					</div>
@@ -249,10 +269,10 @@
 				</div>
 				<div class="row-header-invoice-columns" style="color: red;">
 					<div style="width: 18%">PRODUCT</div>
-					<div style="width: 33.48%; border-right: 1px solid red;">PRODUCT DESCRIPTION</div>
+					<div style="width: 33.42%; border-right: 1px solid red;">PRODUCT DESCRIPTION</div>
 					<div style="width: 7%;border-right: 1px solid red;">QTY SUPP</div>
-					<div style="width: 7.44%;border-right: 1px solid red;">PRICE</div>
-					<div style="width: 3.60%;border-right: 1px solid red;">DISC</div>
+					<div style="width: 7.48%;border-right: 1px solid red;">PRICE</div>
+					<div style="width: 3.65%;border-right: 1px solid red;">DISC</div>
 					<div style="width: 4.20%;border-right: 1px solid red;">UNIT</div>
 					<div style="width: 5.95%;border-right: 1px solid red;">TAX</div>
 					<div style="width: 14.5%; text-align: center; ">VALUE</div>
@@ -268,19 +288,22 @@
 						<tr class="row-detail" >
 						<td>
 							<div style="width: 19%; text-align: center;">
+								<xsl:variable name="buyingGuideProductCode" select="a:buyingGuide/a:productNumber"/>
 								<xsl:for-each select="a:additionalProducts">
 									<xsl:variable name="productPartNumberId" select="a:productPartNumberId"/>
 									<xsl:choose>
 										<xsl:when test="$productPartNumberId = 'IN'">
-											<xsl:value-of select="a:productPartNumber" />
+											<xsl:if test="not($buyingGuideProductCode)">
+												<xsl:value-of select="a:productPartNumber" />
+											</xsl:if>
 										</xsl:when>
 										<xsl:otherwise>
 											<xsl:value-of select="'&#160;'"/>
 										</xsl:otherwise>
 									</xsl:choose>
 								</xsl:for-each>
-								<xsl:if test="a:buyingGuide">
-									<xsl:value-of select="a:buyingGuide/a:productNumber"/>
+								<xsl:if test="a:buyingGuide/a:productNumber">
+									<xsl:value-of select="$buyingGuideProductCode"/>
 								</xsl:if>
 								<xsl:if test="not(a:buyingGuide)">
 									<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
